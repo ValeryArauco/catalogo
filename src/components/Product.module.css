@@ -1,0 +1,165 @@
+.card {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elevation-1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--elevation-2);
+}
+
+.imageLink {
+    display: block;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-standard);
+}
+
+.card:hover .image {
+    transform: scale(1.03);
+}
+
+.content {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.titleLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin: 0 0 0.5rem 0;
+}
+
+.title {
+    margin: 0;
+    font-size: var(--text-title);
+    font-weight: 500;
+    color: var(--foreground);
+    line-height: 1.2;
+    transition: color var(--transition-standard);
+}
+
+.titleLink:hover .title {
+    color: var(--primary);
+}
+
+.description {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--on-surface-variant);
+    font-size: var(--text-body);
+    flex: 1;
+    /* Truco CSS para limitar texto a 2 lineas truncadas con puntos suspensivos */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.priceContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.priceNormal {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--foreground);
+}
+
+.priceStrikethrough {
+    text-decoration: line-through;
+    color: var(--outline);
+    font-size: 1rem;
+}
+
+.priceOffer {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--error, #d32f2f);
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.select {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--light-gray);
+    outline: none;
+    background: var(--surface);
+    color: var(--foreground);
+}
+
+.inputNumber {
+    width: 60px;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--light-gray);
+    outline: none;
+    text-align: center;
+    color: var(--foreground);
+}
+
+.inputNumber:disabled {
+    opacity: 0.5;
+}
+
+.addButton {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background var(--transition-standard);
+}
+
+.addButton:hover {
+    background: var(--primary-hover, #2f8cba);
+}
+
+.addButtonDisabled {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--surface-variant);
+    color: var(--outline);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: not-allowed;
+    font-weight: 500;
+}
