@@ -91,6 +91,7 @@
     padding: 0.5rem 1rem;
     background-color: var(--surface);
     font-weight: 500;
+    border-radius: var(--radius-full);
     color: var(--foreground);
     transition: background-color var(--transition-standard);
     display: inline-flex;
@@ -101,11 +102,12 @@
 
 .pageButton:hover:not(:disabled) {
     background-color: var(--surface-variant);
+
 }
 
 .pageButtonDisabled {
     border: none;
-    
+    border-radius: var(--radius-full);
     padding: 0.5rem 1rem;
     background-color: transparent;
     color: var(--outline);

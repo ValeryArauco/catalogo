@@ -7,6 +7,7 @@ import { createClient } from "../../utils/supabase/server";
 import { cookies } from "next/headers";
 import { SocialIcons } from "@/components/SocialIcons";
 import { Fab } from "@/components/Fab";
+import { Footer } from "@/components/Footer";
 
 export default async function Home({ params, searchParams }) {
   const { negocio } = await params;
@@ -52,7 +53,7 @@ export default async function Home({ params, searchParams }) {
         <Banner slug={negocio} />
         <Products slug={negocio} query={query} categoryId={categoryId} page={page} />
         <Fab whatsappNumber={whatsappNumber} IconoSVG={IconoSVG} />
-        
+        <Footer />
       </main>
     </div>
 

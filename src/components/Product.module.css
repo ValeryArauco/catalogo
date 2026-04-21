@@ -104,7 +104,7 @@
 .priceOffer {
     font-weight: bold;
     font-size: 1.25rem;
-    color: var(--error, #d32f2f);
+    color: var(--primary);
 }
 
 .controls {
