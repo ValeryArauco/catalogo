@@ -2,7 +2,7 @@
 
 .page {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  color: #111;
+  color: var(--foreground);
   background-color: var(--background);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
