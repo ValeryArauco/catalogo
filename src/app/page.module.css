@@ -3,7 +3,7 @@
 .page {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   color: #111;
-  background-color: #fafbf9;
+  background-color: var(--background);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
