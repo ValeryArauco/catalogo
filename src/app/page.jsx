@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./page.module.css";
+import styles from "./landing.module.css";
 
 export const metadata = {
     title: "Code by V | Catálogo y Herramientas Digitales",
@@ -95,7 +95,7 @@ export default function LandingPage() {
             {/* --- LA EXPANSIÓN (BLOQUES ASIMETRICOS) --- */}
             <section className={styles.servicesSection}>
                 <div className={styles.servicesText}>
-                    <h2 className={styles.title} style={{ fontSize: 'clamp(1.5rem, 6vw, 3.5rem)', marginBottom: '1.5rem', lineHeight:"1.5rem" }}>
+                    <h2 className={styles.title} style={{ fontSize: 'clamp(1.5rem, 6vw, 3.5rem)', marginBottom: '1.5rem' }}>
                         Crecemos junto con tu empresa.
                     </h2>
                     <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: '1.7', color: '#111', fontWeight: '500' }}>
