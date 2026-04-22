@@ -1,142 +1,434 @@
-/* .page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* src/app/page.module.css - Rediseño Hexagonal (Brutalist, Sharp, Honeycomb) */
 
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+.page {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  color: #111;
+  background-color: #fafbf9;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.main {
+/* UTILIDADES BASE */
+.title {
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.textFocus {
+  color: #f7c114;
+  -webkit-text-stroke: 1px #111;
+}
+
+/* NAVBAR */
+.navbar {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: #f7c114;
+  border-bottom: 4px solid #111;
+  position: relative;
+  z-index: 50;
 }
 
-.intro {
+.logoImage {
+  height: 48px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* CARACTERÍSTICAS ABEJA / PANAL */
+.hexagon {
+  width: 120px;
+  height: 140px;
+  background-color: #f7c114;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.hexagon svg {
+  width: 48px;
+  height: 48px;
+  color: #111;
+  stroke-width: 2.5;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
+/* BOTONES DUROS (NO REDONDEADOS) */
+.btnPrimary {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
+  background-color: #111;
+  color: #f7c114;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: 4px solid #111;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  width: 100%;
+}
+
+.btnPrimary:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  background-color: transparent;
+  color: #111;
+}
+
+.btnOutline {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #111;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: 4px solid #111;
+  box-shadow: 6px 6px 0px #111;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.btnOutline:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #111;
+}
+
+/* HERO SECTION ASIMETRICO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 80vh;
+  border-bottom: 4px solid #111;
+}
+
+.heroContent {
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border-right: none;
+}
+
+.heroVisual {
+  background-color: #f7c114;
+  background-image: radial-gradient(#111 6%, transparent 6%);
+  background-size: 30px 30px;
+  height: 300px;
+  border-top: 4px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hugeHex {
+  width: 250px;
+  height: 290px;
+  background: #111;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: absolute;
+  transform: rotate(15deg);
+}
+
+.heroTitle {
+  font-size: clamp(2.9rem, 10vw, 5.5rem);
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: clamp(0.8rem, 3vw, 1.4rem);
+  line-height: 1.6;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  max-width: 550px;
+}
+
+/* SECCION PANAL (SOLUCIONES) */
+.honeycombSection {
+  padding: clamp(4rem, 10vw, 8rem) 1.5rem;
+  background: #fff;
+}
+
+.honeyGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+/* ZIG-ZAG MOBILE DEFAULT */
+.honeyCard {
+  border: 4px solid #111;
+  padding: 2.5rem 1.5rem;
+  background: #fff;
+  position: relative;
+  box-shadow: 8px 8px 0px #111;
+  width: 90%;
+  align-self: flex-start;
+}
+
+.honeyCardShifted {
+  align-self: flex-end;
+}
+
+.honeyCard h3 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 1.5rem 0 1rem;
+}
+
+.honeyCard p {
+  color: #444;
+  line-height: 1.6;
   font-weight: 500;
+  font-size: clamp(0.8rem, 3vw, 1.4rem);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+/* SECCION SERVICIOS (BLOQUES ASIMETRICOS) */
+.servicesSection {
+  background-color: #f7c114;
+  border-top: 4px solid #111;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.servicesText {
+  padding: clamp(4rem, 10vw, 6rem) 1.5rem;
+  border-bottom: 4px solid #111;
+  position: sticky;
+  top: 70px;
+  background: #f7c114;
+  z-index: 10;
+  box-shadow: 0px 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
-// Enable hover only on non-touch devices 
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.servicesGrid {
+  display: flex;
+  flex-direction: column;
+}
+
+.srvBlock {
+  padding: 3rem 1.5rem;
+  background: #fff;
+  border-bottom: 4px solid #111;
+}
+
+.srvBlock:last-child {
+  border-bottom: none;
+}
+
+.srvBlock .hexagon {
+  transform: scale(0.6);
+  transform-origin: left top;
+  margin-bottom: -1rem;
+}
+
+.srvBlock h3 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* INICIATIVA */
+.originSection {
+  background-color: #111;
+  color: #F7C114;
+  padding: 6rem 1.5rem;
+  text-align: center;
+  border-bottom: 4px solid #f7c114;
+}
+
+.originSection h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.originSection p {
+  color: #ddd;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* CALL TO ACTION */
+.ctaSection {
+  background: #fff;
+  padding: 6rem 1.5rem;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  margin-bottom: 2rem;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FOOTER */
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  border-top: 8px solid #f7c114;
+}
+
+
+/* ====== MEDIA QUERIES (DESKTOP ASIMÉTRICO) ====== */
+@media (min-width: 800px) {
+
+  
+  .btnPrimary,
+  .btnOutline {
+    width: auto;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .hero {
+    grid-template-columns: 55% 45%;
+  }
+
+  .heroContent {
+    padding: 6rem 5%;
+    border-right: 4px solid #111;
+  }
+
+  .heroVisual {
+    height: auto;
+    border-top: none;
+  }
+
+  .honeyGrid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .honeyCard {
+    width: 320px;
+    margin-top: 0;
+    align-self: auto;
+  }
+
+  /* Desplazamiento de cascada Desktop */
+  .honeyCardShifted {
+    margin-top: 6rem;
+    align-self: auto;
+  }
+
+  .servicesSection {
+    grid-template-columns: 45% 55%;
+  }
+
+  .servicesText {
+    border-right: 4px solid #111;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* Removemos el sticky lateral en desktop ya que está alineado al flex horizontal */
+    top: auto;
+    box-shadow: none;
+  }
+
+
+  .srvBlock:nth-child(even) {
+    background: #fafbf9;
+  }
+
+  .ctaGroup {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
   }
 
-  .intro {
-    gap: 16px;
+  .btnPrimary{
+    padding: 1rem;
+    font-size: 0.8rem;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  .heroVisual {
+    height: 80px;
+    background-color: #f7c114;
+    /* El truco mágico: Ampliamos el 'viewBox' y el width del SVG de 50 a 80. Los 30px extra se convierten en un "espaciador transparente" perfecto entre los dibujos */
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='55' viewBox='0 0 80 55' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='25,0 50,13 50,42 25,55 0,42 0,13' fill='%23111'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 80px 55px; /* Refleja el nuevo tamaño de 80px */
+    background-position: center;
+  
   }
+  
+  .hugeHex {
+    display: none; /* Escondemos el clipping-path sólido porque ahora usamos el fondo que se repite infinito */
+  }
+
+
+  .honeyCard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 1rem;
+    padding: 1rem;
+  }
+
+  .hexagon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hexagon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .srvBlock{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 1rem;
+  }
+
+  .srvBlock h3{
+    padding-top: 0.5rem;
+  }
+
+  .srvBlock p{
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
+  }
+  
+  
 }
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
-} */

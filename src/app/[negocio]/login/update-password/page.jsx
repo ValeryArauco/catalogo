@@ -16,6 +16,23 @@ export default function UpdatePasswordPage() {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
 
+  // Capturar el código PKCE silencioso que llega en la URL y convertirlo a sesión real
+  React.useEffect(() => {
+    const exchangeCode = async () => {
+      if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+        const code = url.searchParams.get("code");
+        
+        if (code) {
+          await supabase.auth.exchangeCodeForSession(code);
+          // Limpiar URL por elegancia (opcional)
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+      }
+    };
+    exchangeCode();
+  }, [supabase.auth]);
+
   const handleUpdatePassword = async (e) => {
     e.preventDefault();
     setLoading(true);

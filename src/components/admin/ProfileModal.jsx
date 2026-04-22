@@ -12,6 +12,7 @@ export default function ProfileModal({ onClose, negocioData, onSave }) {
     const [nombre, setNombre] = useState(negocioData?.nombre || "");
     const [descripcion, setDescripcion] = useState(negocioData?.descripcion || "");
     const [ciudad, setCiudad] = useState(negocioData?.ciudad || "");
+    const [colorPrimario, setColorPrimario] = useState(negocioData?.color_primario || "#3AA8DF");
     
     const [enviosNac, setEnviosNac] = useState(!!negocioData?.envios_nac);
     const [enviosDom, setEnviosDom] = useState(!!negocioData?.envios_dom);
@@ -111,7 +112,8 @@ export default function ProfileModal({ onClose, negocioData, onSave }) {
                     envios_dom: enviosDom,
                     recojo_local: recojoLocal,
                     logo_url: finalLogoUrl,
-                    banner_url: finalBannerUrl
+                    banner_url: finalBannerUrl,
+                    color_primario: colorPrimario
                 })
                 .eq("id", negocioData.id);
 
@@ -217,6 +219,23 @@ export default function ProfileModal({ onClose, negocioData, onSave }) {
                                 )}
                                 <input type="file" accept="image/*" onChange={handleBannerChange} className={styles.fileInput} />
                             </label>
+                        </div>
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label className={styles.label}>Color Principal (Identidad de Marca)</label>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <input 
+                                type="color" 
+                                className={styles.input} 
+                                value={colorPrimario} 
+                                onChange={e => setColorPrimario(e.target.value)} 
+                                style={{ width: '60px', height: '44px', padding: '4px', cursor: 'pointer' }}
+                            />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontSize: 'var(--text-body)', fontWeight: 'bold' }}>{colorPrimario.toUpperCase()}</span>
+                                <small style={{ color: 'var(--on-surface-variant)', fontSize: '0.8rem' }}>El sistema adaptará el contraste automáticamente.</small>
+                            </div>
                         </div>
                     </div>
 
